@@ -126,7 +126,7 @@ What I Did in This Project:
 * Parsed raw logs to extract key fields like timestamps, IPs, actions
 * Built queries to analyze login success/failure, IP activity, and session info
 * Detected anomalies such as spikes in failed login attempts
- *Focused investigation on suspicious IP addresses
+* Focused investigation on suspicious IP addresses
 * Created dashboards to visualize data over time
 
 What I Learned and Why It Matters:
