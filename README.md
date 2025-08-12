@@ -1,18 +1,12 @@
-\# Splunk SSH Log Analysis Project
+# Splunk SSH Log Analysis Project
 
-
-
-\## Introduction  
+## Introduction
 
 SSH (Secure Shell) logs provide detailed info about remote server access. This project demonstrates how to ingest and analyze SSH logs using Splunk SIEM to detect anomalies, failed login attempts, and suspicious IP activity.
 
-
-
 ---
 
-
-
-\## Steps and Queries Used
+## Steps and Queries Used
 
 ```spl
 
