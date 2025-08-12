@@ -16,7 +16,7 @@ SSH (Secure Shell) logs provide detailed info about remote server access. This p
 
 
 
-\### 1. Search for SSH Events  
+1\. Search for SSH Events  
 
 ```spl
 
@@ -60,6 +60,8 @@ index=main sourcetype=sshd
 
 
 
+
+
 3\. Analyze SSH Activity Patterns
 
 
@@ -76,6 +78,8 @@ index=main sourcetype=sshd
 
 | stats count by action
 
+(screenshots\\count-events-by-action.png)
+
 
 
 Top 10 source IPs:
@@ -89,6 +93,8 @@ index=main sourcetype=sshd
 | eval src\_ip=mvindex(parts, 2)
 
 | top limit=10 src\_ip
+
+(screenshots\\top-ten-ips.png)
 
 
 
@@ -105,6 +111,8 @@ index=main sourcetype=sshd
 | eval \_time=round(tonumber(mvindex(split(clean, " "), 0)))
 
 | timechart span=1h count
+
+(screenshots\\unusual-spikes-in-SSH-activity.png)
 
 
 
@@ -126,6 +134,8 @@ index=main sourcetype=sshd
 
 | sort - count
 
+(screenshots\\successful-logins-by-source-ip.png)
+
 
 
 Analyze failed login attempts:
@@ -145,6 +155,8 @@ index=main sourcetype=sshd
 | stats count by src\_ip
 
 | sort - count
+
+(screenshots\\failed-login -attempts-from-all.png)
 
 
 
@@ -172,6 +184,8 @@ index=main sourcetype=sshd
 
 | table \_time session\_id action src\_ip dest\_ip dest\_port
 
+(screenshots\\recent-activity-from-sus-ip.png)
+
 
 
 5\. Monitor User Behavior
@@ -195,6 +209,8 @@ index=main sourcetype=sshd
 | stats count by src\_ip
 
 | sort - count
+
+(screenshots\\ip-with-highest-failed-attempts.png)
 
 
 
@@ -223,6 +239,8 @@ index=main sourcetype=sshd
 | table \_time session\_id action src\_ip dest\_ip dest\_port
 
 | sort \_time
+
+(screenshots\\checked-failed-login-attempts-specific ip.png)
 
 
 
@@ -273,6 +291,10 @@ Panels Created
 * List of recent suspicious IP activities (table)
 * Average session duration by IP (bar chart)
 
+(screenshots\\dashboard.png)
+
+(screenshots\\dashboard-panel.png)
+
 
 
 Resources and References
@@ -282,9 +304,8 @@ Resources and References
 * Splunk Documentation
 * Regex101
 * Splunk Rex Command Guide
-* Sample SSH logs: secrepo.com
 
-
+Sample SSH logs: secrepo.com https://www.secrepo.com/maccdc2012/ssh.log.gz
 
 
 
