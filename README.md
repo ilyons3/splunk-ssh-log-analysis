@@ -78,7 +78,7 @@ index=main sourcetype=sshd
 
 | stats count by action
 
-![Count Events by Action](screenshots/count-events-by-action.png)
+![Count Events by Action](/screenshots/count-events-by-action.png)
 
 
 
@@ -94,7 +94,7 @@ index=main sourcetype=sshd
 
 | top limit=10 src\_ip
 
-![Top Ten IPs](screenshots/top-ten-ips.png)
+![Top Ten IPs](/screenshots/top-ten-ips.png)
 
 
 
@@ -112,7 +112,7 @@ index=main sourcetype=sshd
 
 | timechart span=1h count
 
-![Unusual Spikes in SSH Activity](screenshots/unusual-spikes-in-SSH-activity.png)
+![Unusual Spikes in SSH Activity](/screenshots/unusual-spikes-in-SSH-activity.png)
 
 
 
@@ -136,7 +136,7 @@ index=main sourcetype=sshd
 
 (screenshots\\successful-logins-by-source-ip.png)
 
-![Successful Logins by Source IP](screenshots/successful-logins-by-source-ip.png)
+![Successful Logins by Source IP](/screenshots/successful-logins-by-source-ip.png)
 
 
 Analyze failed login attempts:
@@ -157,7 +157,7 @@ index=main sourcetype=sshd
 
 | sort - count
 
-![Failed Login Attempts From All IPs](screenshots/failed-login-attempts-from-all.png)
+![Failed Login Attempts From All IPs](/screenshots/failed-login-attempts-from-all.png)
 
 
 
@@ -185,7 +185,7 @@ index=main sourcetype=sshd
 
 | table \_time session\_id action src\_ip dest\_ip dest\_port
 
-![Recent Activity from Suspicious IP](screenshots/recent-activity-from-sus-ip.png)
+![Recent Activity from Suspicious IP](/screenshots/recent-activity-from-sus-ip.png)
 
 
 
@@ -211,7 +211,7 @@ index=main sourcetype=sshd
 
 | sort - count
 
-![IP With Highest Failed Attempts](screenshots/ip-with-highest-failed-attempts.png)
+![IP With Highest Failed Attempts](/screenshots/ip-with-highest-failed-attempts.png)
 
 
 
@@ -241,7 +241,7 @@ index=main sourcetype=sshd
 
 | sort \_time
 
-![Checked Failed Login Attempts for Specific IPs](screenshots/checked-failed-login-attempts-specific-ip.png)
+![Checked Failed Login Attempts for Specific IPs](/screenshots/checked-failed-login-attempts-specific-ip.png)
 
 
 
@@ -292,9 +292,9 @@ Panels Created
 * List of recent suspicious IP activities (table)
 * Average session duration by IP (bar chart)
 
-![Dashboard Overview](screenshots/dashboard.png)
+![Dashboard Overview](/screenshots/dashboard.png)
 
-![Dashboard Panel](screenshots/dashboard-panel.png)
+![Dashboard Panel](/screenshots/dashboard-panel.png)
 
 
 
