@@ -18,7 +18,6 @@ SSH (Secure Shell) logs provide detailed info about remote server access. This p
 
 1\. Search for SSH Events  
 
-```spl
 
 index=main sourcetype=sshd
 
