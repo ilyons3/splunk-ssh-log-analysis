@@ -14,9 +14,10 @@ SSH (Secure Shell) logs provide detailed info about remote server access. This p
 
 \## Steps and Queries Used
 
-
+```spl
 
 1\. Search for SSH Events  
+
 
 
 index=main sourcetype=sshd
