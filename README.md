@@ -1,3 +1,7 @@
+# Image test
+
+![Test image](screenshots/count-events-by-action.png)
+
 # Splunk SSH Log Analysis Project
 
 ## Introduction
