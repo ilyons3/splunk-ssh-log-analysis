@@ -1,6 +1,7 @@
 Findings and Analysis:
 
 Suspicious IP Address: 192.168.202.141
+
 This IP address generated a very high number of failed login attempts (2356), strongly indicating a brute force or automated attack attempt.
 
 The failed attempts were clustered within short time periods, suggesting focused attack bursts rather than random noise.
