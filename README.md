@@ -1,6 +1,3 @@
-# Image test
-
-![Test image](screenshots/count-events-by-action.png)
 
 # Splunk SSH Log Analysis Project
 
@@ -44,8 +41,10 @@ index=main sourcetype=sshd
 | eval parts=split(clean, " ")
 | eval action=mvindex(parts, 6)
 | stats count by action
+```
 ![Count Events by Action](screenshots/count-events-by-action.png)
 
+```spl
 Top 10 source IPs:
 
 index=main sourcetype=sshd
@@ -53,16 +52,20 @@ index=main sourcetype=sshd
 | eval parts=split(clean, " ")
 | eval src_ip=mvindex(parts, 2)
 | top limit=10 src_ip
+```
 ![Top Ten IPs](screenshots/top-ten-ips.png)
 
+```spl
 4. Detect Anomalies
 Look for unusual spikes in SSH activity over time:
 index=main sourcetype=sshd
 | eval clean=replace(_raw, "\s+", " ")
 | eval _time=round(tonumber(mvindex(split(clean, " "), 0)))
 | timechart span=1h count
+```
 ![Unusual Spikes in SSH Activity](screenshots/unusual-spikes-in-SSH-activity.png)
 
+```spl
 Analyze successful logins by source IP:
 index=main sourcetype=sshd
 | eval clean=replace(_raw, "\s+", " ")
@@ -72,8 +75,10 @@ index=main sourcetype=sshd
 | search action="success"
 | stats count by src_ip
 | sort - count
+```
 ![Successful Logins by Source IP](screenshots/successful-logins-by-source-ip.png)
 
+```spl
 Analyze failed login attempts:
 index=main sourcetype=sshd
 | eval clean=replace(_raw, "\s+", " ")
@@ -83,8 +88,10 @@ index=main sourcetype=sshd
 | search action="failure"
 | stats count by src_ip
 | sort - count
+```
 ![Failed Login Attempts From All IPs](screenshots/failed-login-attempts-from-all.png)
 
+```spl
 Investigate SSH sessions from a suspicious IP:
 index=main sourcetype=sshd
 | eval clean=replace(_raw, "\s+", " ")
@@ -97,8 +104,10 @@ index=main sourcetype=sshd
 | eval dest_port=mvindex(parts, 5)
 | search src_ip="192.168.202.141"
 | table _time session_id action src_ip dest_ip dest_port
+```
 ![Recent Activity from Suspicious IP](screenshots/recent-activity-from-sus-ip.png)
 
+```spl
 5. Monitor User Behavior
 Identify IPs with multiple failed login attempts:
 index=main sourcetype=sshd
@@ -123,6 +132,7 @@ index=main sourcetype=sshd
 | search src_ip="192.168.202.141" OR src_ip="192.168.202.110"
 | table _time session_id action src_ip dest_ip dest_port
 | sort _time
+```
 ![Checked Failed Login Attempts for Specific IPs](screenshots/checked-failed-login-attempts-specific-ip.png)
 
 What I Did in This Project:
@@ -153,6 +163,7 @@ Panels Created
 * Top source IPs by failed logins (table or bar chart)
 * List of recent suspicious IP activities (table)
 * Average session duration by IP (bar chart)
+
 ![Dashboard Overview](screenshots/dashboard.png)
 ![Dashboard Panel](screenshots/dashboard-panel.png)
 
